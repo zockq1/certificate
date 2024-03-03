@@ -14,8 +14,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let a;
-  let b;
   return (
     <html lang="ko">
       <body>
