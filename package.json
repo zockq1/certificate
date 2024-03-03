@@ -11,13 +11,20 @@
     "lint:strict": "next lint '*/**/*.{js,jsx,ts,tsx}'",
     "prettier": "prettier --write */**/*.{js,jsx,json,ts,tsx,scss,css,md}",
     "prepare": "husky",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "stylelint": "stylelint \"**/*.css\"",
+    "stylelint:fix": "stylelint --fix \"**/*.css\""
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix"
-    ]},
+    ],
+    "*.{css}": [
+      "prettier --write",
+      "stylelint --fix \"**/*.css\""
+    ]
+  },
   "dependencies": {
     "@tanstack/react-query": "^5.24.1",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
@@ -36,13 +43,20 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.4.18",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
-    "postcss": "^8",
+    "postcss": "^8.4.35",
+    "postcss-import": "^16.0.1",
+    "postcss-nesting": "^12.0.4",
+    "stylelint": "^16.2.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-prettier": "^5.0.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

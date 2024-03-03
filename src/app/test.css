@@ -1,0 +1,9 @@
+.card {
+  position: relative;
+  display: flex;
+  color: red;
+
+  .item {
+    position: relative;
+  }
+}
