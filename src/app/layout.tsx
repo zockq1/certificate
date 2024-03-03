@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   let a;
-  //let b;
+  let b;
   return (
     <html lang="ko">
       <body>
