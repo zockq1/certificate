@@ -12,8 +12,7 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@tanstack/eslint-plugin-query/recommended",
-    "plugin:storybook/recommended"
+    "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
   "plugins": [
     "prettier",
@@ -59,24 +58,6 @@
       {
         "format": ["PascalCase"],
         "selector": "typeAlias"
-      }
-    ],
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", ["parent", "sibling"], "index"],
-        "pathGroups": [
-          {
-            "pattern": "~/**",
-            "group": "external",
-            "position": "after"
-          }
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        },
-        "newlines-between": "always"
       }
     ],
     "@tanstack/query/exhaustive-deps": "error",
