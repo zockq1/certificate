@@ -2,7 +2,8 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 
-import { MSWComponent } from '@/app/MSWComponent';
+import { MSWProvider } from '@/app/MSWProvider';
+import ReactQueryProvider from '@/app/ReactQueryProvider';
 import RecoilRootProvider from '@/app/RecoilRootProvider';
 import { initMSW } from '@/mocks';
 
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <RecoilRootProvider>
-          <MSWComponent>{children}</MSWComponent>
-        </RecoilRootProvider>
+        <ReactQueryProvider>
+          <RecoilRootProvider>
+            <MSWProvider>{children}</MSWProvider>
+          </RecoilRootProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

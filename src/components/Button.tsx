@@ -2,31 +2,17 @@
 
 import './test.css';
 
-import axios from 'axios';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 
+import { useCreatePosts } from '@/api/post/useCreatePost';
 import { textState } from '@/app/RecoilRootProvider';
 
 export default function Button() {
   const [count, setCount] = useState(0);
   const [text, setText] = useRecoilState(textState);
-  const [data, setData] = useState<{ name: string; age: number | null }>({
-    name: '',
-    age: null,
-  });
-
-  const getTest = () => {
-    axios
-      .get('http://localhost:9090/user')
-      .then((res) => {
-        const { data } = res;
-        console.log(data);
-        setData(data.data);
-      })
-      .catch((error) => console.log(error));
-  };
-
+  const { mutate, data } = useCreatePosts();
+  console.log(data);
   return (
     <div>
       <p className="text-7xl font-bold text-blue-700">{count}</p>
@@ -34,10 +20,24 @@ export default function Button() {
       <p className="auto-pre">{text}</p>
       <button onClick={() => setText((prev) => prev + count)}>Click me</button>
       <br />
-      <button onClick={getTest}>임시 데이터 가져오기</button>
+      <button
+        onClick={() =>
+          mutate({
+            body: {
+              title: '제목',
+              content: '내용',
+              images: [],
+              certificate: {
+                id: 1,
+                title: '자격증',
+              },
+            },
+          })
+        }
+      >
+        임시 데이터 가져오기
+      </button>
       <br />
-      <p>{data.name}</p>
-      <p>{data.age}</p>
     </div>
   );
 }

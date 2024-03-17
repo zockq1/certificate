@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.24.1",
+    "@tanstack/react-query-devtools": "^5.28.4",
+    "@tanstack/react-query-next-experimental": "^5.28.4",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "axios": "^1.6.7",

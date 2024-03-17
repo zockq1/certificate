@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  assetPrefix: '.',
-};
+const nextConfig = {};
 
 module.exports = nextConfig;
