@@ -1,8 +1,21 @@
-import { api } from '../axios-config';
-import { GetCategoryListResponse } from './certificate.type';
+import { QueryFunction } from '@tanstack/react-query';
 
-const getCategory = async (): Promise<GetCategoryListResponse> => {
-  return api.get('/certificate/category');
+import { baseURL } from '../axios-config';
+
+export const getCategory: QueryFunction = async () => {
+  const res = await fetch(`${baseURL}/certificate/category`, {
+    next: {
+      tags: ['category'],
+    },
+    credentials: 'include',
+    cache: 'no-store',
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
 };
 
 export function useGetCategory() {
