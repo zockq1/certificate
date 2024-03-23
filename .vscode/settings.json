@@ -8,5 +8,8 @@
   "editor.formatOnSave": true,
   "stylelint.enable": true,
   "stylelint.validate": ["css", "scss"],
-  "css.customData": [".vscode/css_custom_data.json"]
+  "css.customData": [".vscode/css_custom_data.json"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }

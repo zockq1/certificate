@@ -1,20 +1,8 @@
 import axios from 'axios';
 
 async function getUser() {
-  const response = await axios.post(
-    'http://localhost:9090/posts',
-    {
-      title: '제목',
-      content: '내용',
-      images: [],
-      certificate: {
-        id: 1,
-        title: '자격증',
-      },
-    },
-    {
-      headers: { Authorization: 'accessToken' },
-    },
+  const response = await axios.get(
+    'http://localhost:9090/certificate/category',
   );
 
   return response.data;
@@ -22,7 +10,8 @@ async function getUser() {
 
 const UserPage = async () => {
   const data = await getUser();
-  return <div>{data.title}</div>;
+  console.log(data);
+  return <div>{data[0].title}</div>;
 };
 
 export default UserPage;

@@ -1,11 +1,16 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
+import { Noto_Sans_KR } from 'next/font/google';
 
 import { MSWProvider } from '@/app/MSWProvider';
 import ReactQueryProvider from '@/app/ReactQueryProvider';
 import RecoilRootProvider from '@/app/RecoilRootProvider';
 import { initMSW } from '@/mocks';
+
+const notoSansKr = Noto_Sans_KR({
+  preload: false,
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
+      <body className={notoSansKr.className}>
         <ReactQueryProvider>
           <RecoilRootProvider>
             <MSWProvider>{children}</MSWProvider>

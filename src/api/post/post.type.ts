@@ -1,5 +1,5 @@
-import { UserModel } from './auth.type';
-import { CertificateModel } from './certificate.type';
+import { UserModel } from '../auth/auth.type';
+import { CertificateModel } from '../certificate/certificate.type';
 
 export interface PostModel {
   id: number;

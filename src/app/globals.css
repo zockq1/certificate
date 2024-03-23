@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 body {
-  display: flex;
-  width: 100px;
+  box-sizing: border-box;
 }

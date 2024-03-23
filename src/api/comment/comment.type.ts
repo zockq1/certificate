@@ -1,4 +1,4 @@
-import { UserModel } from './auth.type';
+import { UserModel } from '../auth/auth.type';
 
 export interface CommentModel {
   id: number;

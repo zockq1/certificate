@@ -10,4 +10,9 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const WithIcon: Story = {};
+export const Active: Story = {
+  args: {
+    children: '확인',
+    disabled: false,
+  },
+};
