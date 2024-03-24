@@ -1,10 +1,18 @@
 import { createMiddleware } from '@mswjs/http-middleware';
+import cors from 'cors';
 import express from 'express';
 
 import { handlers } from './handlers';
 
 const app = express();
 const port = 9090;
+
+app.use(
+  cors({
+    origin: 'http://localhost:3002',
+    credentials: true,
+  }),
+);
 
 app.use(express.json());
 app.use(createMiddleware(...handlers));

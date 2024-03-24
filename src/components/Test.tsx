@@ -11,8 +11,7 @@ import { textState } from '@/app/RecoilRootProvider';
 export default function Test() {
   const [count, setCount] = useState(0);
   const [text, setText] = useRecoilState(textState);
-  const { mutate, data } = useCreatePosts();
-  console.log(data);
+  const { mutate } = useCreatePosts();
   return (
     <div>
       <p className="text-blue-700 text-7xl font-bold">{count}</p>

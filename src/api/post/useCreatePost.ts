@@ -1,8 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
+import { baseURL } from '@/api/fetch-config';
 import { CreatePostRequest } from '@/api/post/post.type';
-
-import { baseURL } from '../axios-config';
 
 export const createPost = async (postData: CreatePostRequest) => {
   const res = await fetch(`${baseURL}/posts`, {

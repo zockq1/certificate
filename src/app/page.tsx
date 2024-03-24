@@ -13,7 +13,7 @@ export default async function Home() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['certificate'],
+    queryKey: ['category'],
     queryFn: getCategory,
   });
   const dehydratedState = dehydrate(queryClient);

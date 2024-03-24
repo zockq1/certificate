@@ -1,11 +1,15 @@
 import { QueryFunction } from '@tanstack/react-query';
 
-import { baseURL } from '../axios-config';
+import { baseURL } from '../fetch-config';
+import { GetCategoryListResponse } from './certificate.type';
 
-export const getCategory: QueryFunction = async () => {
+export const getCategory: QueryFunction<
+  GetCategoryListResponse,
+  [string]
+> = async ({ queryKey }) => {
   const res = await fetch(`${baseURL}/certificate/category`, {
     next: {
-      tags: ['category'],
+      tags: queryKey,
     },
     credentials: 'include',
     cache: 'no-store',
@@ -17,10 +21,3 @@ export const getCategory: QueryFunction = async () => {
 
   return res.json();
 };
-
-export function useGetCategory() {
-  return {
-    queryKey: ['category'],
-    queryFn: getCategory,
-  };
-}

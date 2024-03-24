@@ -1,17 +1,13 @@
-import axios from 'axios';
+'use client';
 
-async function getUser() {
-  const response = await axios.get(
-    'http://localhost:9090/certificate/category',
-  );
+import { useQuery } from '@tanstack/react-query';
 
-  return response.data;
-}
+import { getCategory } from '@/api/certificate/useGetCategory';
 
-const UserPage = async () => {
-  const data = await getUser();
-  console.log(data);
-  return <div>{data[0].title}</div>;
+const UserPage = () => {
+  const { data } = useQuery({ queryKey: ['category'], queryFn: getCategory });
+  if (!data || !data[0]) return <div>데이터 없음</div>;
+  return <div>{data[0].id}</div>;
 };
 
 export default UserPage;
